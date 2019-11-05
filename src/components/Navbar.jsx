@@ -2,16 +2,21 @@ import React, { useState } from 'react';
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
-  const toggleMode = e => {
+  const toggleMode = (e) => {
     e.preventDefault();
     setDarkMode(!darkMode);
   };
+
   return (
     <nav className="navbar">
       <h1>Crypto Tracker</h1>
       <div className="dark-mode__toggle">
         <div
+          role="button"
+          tabIndex="0"
+          aria-label="Dark Mode Toggle"
           onClick={toggleMode}
+          onKeyPress={toggleMode}
           className={darkMode ? 'toggle toggled' : 'toggle'}
         />
       </div>
